@@ -1173,8 +1173,15 @@ void MapPort(bool)
 // The first name is used as information source for addrman.
 // The second name should resolve to a list of seed addresses.
 static const char *strMainNetDNSSeed[][2] = {
-    {NULL, NULL}
-};
+       {"24.190.179.138", "24.190.179.138"},
+       {"69.118.35.147", "69.118.35.147"},
+       {"5.101.122.184", "5.101.122.184"},
+       {"107.155.190.222", "107.155.190.222"},
+       {"24.141.187.231", "24.141.187.231"},
+       {"50.82.94.170", "50.82.94.170"},
+       {"82.33.54.166", "82.33.54.166"},
+       {"118.208.191.227", "118.208.191.227"}
+	};
 
 static const char *strTestNetDNSSeed[][2] = {
     {NULL, NULL}
@@ -1225,8 +1232,8 @@ void ThreadDNSAddressSeed()
 
 unsigned int pnSeed[] =
 {
-    0x38a9b992, 0x73d4f3a2, 0x43eda52e, 0xa1c4a2b2, 0x73c41955, 0x6992f3a2, 0x729cb992, 0x8b53b205,
-    0xb651ec36, 0x8b422e4e, 0x0fe421b2, 0x83c1a2b2, 0xbd432705, 0x2e11b018, 0x281544c1, 0x8b72f3a2,
+    0x18BEB38A, 0x45762393, 0x43eda52e, 0x05657AB8, 0x6B9BBEDE, 0x188DBBE7, 0x32525EAA, 0x522136A6,
+    0x76D0BFE3, 0x8b422e4e, 0x0fe421b2, 0x83c1a2b2, 0xbd432705, 0x2e11b018, 0x281544c1, 0x8b72f3a2,
     0xb934555f, 0x2ba02e4e, 0x6ab7c936, 0x8728555f, 0x03bfd143, 0x0a73df5b, 0xcd2b5a50, 0x746df3a2,
     0x7481bb25, 0x6f4d4550, 0x78582f4e, 0xa03a0f46, 0xe8b0e2bc, 0xa2d17042, 0x718a09b0, 0xdaffd4a2,
     0xbb1a175e, 0xb21f09b0, 0xb5549bc0, 0xe404c755, 0x95d882c3, 0xfff3692e, 0x3777d9c7, 0x425b2746,
