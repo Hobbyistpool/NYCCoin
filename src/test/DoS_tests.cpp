@@ -103,10 +103,10 @@ BOOST_AUTO_TEST_CASE(DoS_checknbits)
     // These are the block-chain checkpoint blocks
     typedef std::map<int64, unsigned int> BlockData;
     BlockData chainData =
-        map_list_of(1239852051,486604799)(1262749024,486594666)
-        (1279305360,469854461)(1280200847,469830746)(1281678674,469809688)
-        (1296207707,453179945)(1302624061,453036989)(1309640330,437004818)
-        (1313172719,436789733);
+        map_list_of(1394102925,504365040)(1394420443,472678783)
+        (1409164717,486677462)(1424893733,486737111)(1440275208,486824683)
+        (1455780904,486690221)(1471368362,486857414)(1486453565,487040736)
+        (1501577833,486987683)
 
     // Make sure CheckNBits considers every combination of block-chain-lock-in-points
     // "sane":
@@ -125,7 +125,10 @@ BOOST_AUTO_TEST_CASE(DoS_checknbits)
     // First checkpoint difficulty at or a while after the last checkpoint time should fail when
     // compared to last checkpoint
     BOOST_CHECK(!CheckNBits(firstcheck.second, lastcheck.first+60*10, lastcheck.second, lastcheck.first));
+    // this test fails. This may have serious implications for DoS in it's current state
     BOOST_CHECK(!CheckNBits(firstcheck.second, lastcheck.first+60*60*24*14, lastcheck.second, lastcheck.first));
+    // this test passes. so We're good on DoS for 1 day?
+    BOOST_CHECK(!CheckNBits(firstcheck.second, lastcheck.first+60*60*24*1, lastcheck.second, lastcheck.first));
 
     // ... but OK if enough time passed for difficulty to adjust downward:
     BOOST_CHECK(CheckNBits(firstcheck.second, lastcheck.first+60*60*24*365*4, lastcheck.second, lastcheck.first));
